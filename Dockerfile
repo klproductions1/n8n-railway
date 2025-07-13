@@ -11,21 +11,15 @@ RUN apk add --no-cache \
     ca-certificates \
     dumb-init
 
-# n8n 사용자 생성
-RUN addgroup -g 1000 n8n && \
-    adduser -D -s /bin/sh -u 1000 -G n8n n8n
-
 # 작업 디렉토리 설정
-WORKDIR /home/n8n
+WORKDIR /data
 
 # n8n 설치
 RUN npm install -g n8n
 
-# n8n 사용자로 전환
-USER n8n
-
-# 데이터 디렉토리 생성
-RUN mkdir -p /home/n8n/.n8n
+# 데이터 디렉토리 생성 및 권한 설정
+RUN mkdir -p /data/.n8n && \
+    chmod 755 /data/.n8n
 
 # 포트 노출
 EXPOSE 5678

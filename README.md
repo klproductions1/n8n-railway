@@ -32,7 +32,7 @@ N8N_PORT=5678
 N8N_WEBHOOK_URL=https://your-app.railway.app/
 GENERIC_TIMEZONE=Asia/Seoul
 TZ=Asia/Seoul
-N8N_USER_FOLDER=/home/n8n/.n8n
+N8N_USER_FOLDER=/data/.n8n
 N8N_LOG_LEVEL=info
 NODE_ENV=production
 ```
