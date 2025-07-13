@@ -1,0 +1,25 @@
+{
+  "name": "n8n-railway",
+  "version": "1.0.0",
+  "description": "n8n with ffmpeg on Railway",
+  "main": "index.js",
+  "scripts": {
+    "start": "n8n start",
+    "build": "echo 'Build completed'"
+  },
+  "keywords": [
+    "n8n",
+    "workflow",
+    "automation",
+    "railway",
+    "ffmpeg"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "n8n": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+} 
