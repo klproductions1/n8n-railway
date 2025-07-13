@@ -24,19 +24,22 @@ Railway에서 n8n과 FFmpeg을 함께 실행하는 프로젝트입니다.
 ### 3. 환경 변수 설정
 Railway 대시보드에서 다음 환경 변수들을 설정하세요:
 
+**필수 설정:**
+```
+N8N_PORT=5678
+N8N_HOST=0.0.0.0
+N8N_USER_FOLDER=/data/.n8n
+NODE_ENV=production
+```
+
+**선택적 설정 (보안을 위해 권장):**
 ```
 N8N_BASIC_AUTH_ACTIVE=true
-N8N_BASIC_AUTH_USER=admin
+N8N_BASIC_AUTH_USER=your_username
 N8N_BASIC_AUTH_PASSWORD=your_secure_password
-N8N_PORT=5678
 N8N_WEBHOOK_URL=https://your-app.railway.app/
 GENERIC_TIMEZONE=Asia/Seoul
 TZ=Asia/Seoul
-N8N_USER_FOLDER=/data/.n8n
-N8N_LOG_LEVEL=debug
-N8N_SKIP_WEBHOOK_DEREGISTRATION_SHUTDOWN=true
-N8N_DISABLE_PRODUCTION_MAIN_PROCESS=true
-NODE_ENV=production
 ```
 
 ### 4. 데이터베이스 연결 (선택사항)

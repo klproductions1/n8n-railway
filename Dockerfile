@@ -25,10 +25,15 @@ RUN mkdir -p /data/.n8n && \
 # 포트 노출
 EXPOSE 5678
 
-# 헬스체크 추가
-HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
-  CMD curl -f http://localhost:5678/ || exit 1
+# 환경 변수 설정
+ENV N8N_PORT=5678
+ENV N8N_HOST=0.0.0.0
 
-# dumb-init으로 n8n 실행
-ENTRYPOINT ["dumb-init", "--"]
-CMD ["n8n", "start"] 
+# n8n 시작 스크립트 생성
+RUN echo '#!/bin/sh\necho "Starting n8n..."\nexec n8n start' > /start.sh && chmod +x /start.sh
+
+# 헬스체크 비활성화 (일단 제거)
+# HEALTHCHECK NONE
+
+# 단순한 실행 명령
+CMD ["/start.sh"] 
