@@ -9,7 +9,8 @@ RUN apk add --no-cache \
     g++ \
     git \
     ca-certificates \
-    dumb-init
+    dumb-init \
+    curl
 
 # 작업 디렉토리 설정
 WORKDIR /data
@@ -25,8 +26,8 @@ RUN mkdir -p /data/.n8n && \
 EXPOSE 5678
 
 # 헬스체크 추가
-HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
-  CMD curl -f http://localhost:5678/healthz || exit 1
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+  CMD curl -f http://localhost:5678/ || exit 1
 
 # dumb-init으로 n8n 실행
 ENTRYPOINT ["dumb-init", "--"]
