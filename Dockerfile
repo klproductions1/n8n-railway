@@ -29,11 +29,5 @@ EXPOSE 5678
 ENV N8N_PORT=5678
 ENV N8N_HOST=0.0.0.0
 
-# n8n 시작 스크립트 생성
-RUN echo '#!/bin/sh\necho "Starting n8n..."\nexec n8n start' > /start.sh && chmod +x /start.sh
-
-# 헬스체크 비활성화 (일단 제거)
-# HEALTHCHECK NONE
-
-# 단순한 실행 명령
-CMD ["/start.sh"] 
+# 직접 n8n 실행
+CMD ["n8n", "start"] 
